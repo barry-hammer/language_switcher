@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Filler Text</title>
+	<!--<link rel="stylesheet" href="./main.css">-->
+	<style>
+		@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+		*{
+		font-family: 'Poppins', sans-serif;
+		}
+		body{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		background: #f2f2f2;
+		}
+		.container {
+		position: relative;
+		max-width: 600px;
+		height: 500px;
+		padding: 50px;
+		color: #555;
+		text-align: center;
+		}
+		.langWrap{
+		background: #333;
+		}
+		a{
+		text-transform: uppercase;
+		color: #fff;
+		text-decoration: none;
+		padding: 0 15px;
+		font-weight: bold;
+		background: #555656;
+		font-size: 18px;
+		}
+		a.active{
+		background: #f21313;
+		}
+		.content{
+		margin-top: 20px;
+		font-size: 20px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="langWrap">
+			<a href="#" language='english' class="active">EN</a>
+			<a href="#" language='dutch'>NL</a>
+			<a href="#" language='hebrew'>IL</a>
+		</div>
+
+		<div class="content">
+			<h2 class="title">Filler Text</h2>
+			<p class="description">This is just some simple text to display here on this block. The purpose of this text is to show this text as it would look like in English, instead of Dutch or Hebrew. Clicking on one of the other buttons will display the text in the appropriate language.</p>
+		</div>
+	</div>
+	<script>
+		const langEl = document.querySelector('.langWrap');
+		const link = document.querySelectorAll('a');
+		const titleEl = document.querySelector('.title');
+		const descrEl = document.querySelector('.description');
+
+		link.forEach(el => {
+			el.addEventListener('click', () => {
+				langEl.querySelector('.active').classList.remove('active');
+				el.classList.add('active');
+
+				const attr = el.getAttribute('language');
+
+				titleEl.textContent = data[attr].title;
+				descrEl.textContent = data[attr].description;
+			});
+		});
+		
+		var data = {
+			  "english": 
+			  {
+			    "title": "Filler Text",
+			    "description": 
+				    "This is just some simple text to display here on this block. The purpose of this text is to show this text as it would look like in English, instead of Dutch or Hebrew. Clicking on one of the other buttons will display the text in the appropriate language."
+			  },
+			  "dutch": 
+			  {
+			    "title": "Vullende tekst",
+			    "description": 
+				    "Dit is slechts een eenvoudige tekst die u hier in dit blok kunt weergeven. Het doel van deze tekst is om deze tekst weer te geven zoals deze er in het Nederlands uit zou zien, in plaats van in het Engels of Hebreeuws. Als u op een van de andere knoppen klikt, wordt de tekst in de juiste taal weergegeven."
+			  },
+			  "hebrew": 
+			  {
+			    "title": "טקסט מילוי",
+			    "description": 
+				    "זה רק טקסט פשוט להצגה כאן בבלוק הזה. מטרת הטקסט הזה היא להציג את הטקסט הזה כפי שהוא ייראה בהולנדית, במקום באנגלית או בעברית. לחיצה על אחד הכפתורים האחרים תציג את הטקסט בשפה המתאימה."
+			  }
+			}
+	</script>
+</body>
+</html>
